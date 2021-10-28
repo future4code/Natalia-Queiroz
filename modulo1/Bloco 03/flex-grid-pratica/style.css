@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background-color: khaki;
+}
+
+.icone-e-texto{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: khaki;
+    color: orange;
+
+}
+
+#logo {
+    width: 60px;
+}
+
+#divBusca {
+    display: flex;
+    flex-direction: row;
+    background-color: grey;
+    border: 1px solid;
+    border-radius: 15px;
+    width: 300px;
+}
+
+#txtBusca {
+    float: left;
+    background-color: grey;
+    padding-left: 5px;
+    font-style: italic;
+    font-size: 18px;
+    border: none;
+    height: 32px;
+    width: 260px;
+}
+
+#btnBusca {
+    width: 30px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 90%;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: stretch;
+    
+}
+
+.icone-video {
+    width: "320";
+    height: "240";
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background-color: khaki;
+}
