@@ -1,6 +1,10 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components';
 
+
+const Imagem = styled.img`
+    width: 10%;
+`
 
 const ContainerLittleCard = styled.div`
     display: flex;
@@ -10,18 +14,14 @@ const ContainerLittleCard = styled.div`
     border: 1px solid black;
 `
 
-const Imagem = styled.img`
-width: 10%;
-`
-
-function CardPequeno (props) {
+function CardPequeno2 (props) {
     return (
         <ContainerLittleCard>
-            <Imagem src={ props.imagem } />
+            <Imagem src={ props.imagem }/>
             <div>
-                <h4>{ props.email }</h4>
+                <h4>{ props.endereco }</h4>
             </div>
         </ContainerLittleCard>
     )
 }
-export default CardPequeno;
+export default CardPequeno2;
