@@ -9,6 +9,7 @@ import email1600 from './img/email1600.png';
 import local from './img/local.png';
 import CardPequeno2 from './components/CardPequeno2/CardPequeno2';
 
+const variavel = 'variavel'
 
 const GlobalStyle = createGlobalStyle`
   padding: 0;
