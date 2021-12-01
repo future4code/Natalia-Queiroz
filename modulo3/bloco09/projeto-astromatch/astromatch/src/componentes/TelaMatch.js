@@ -7,6 +7,6 @@ function TelaMatch(props) {
             Tela de match
         </div>
     )
-}
+}; 
 
 export {TelaMatch};
