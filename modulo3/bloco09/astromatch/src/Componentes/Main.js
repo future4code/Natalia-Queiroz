@@ -4,6 +4,7 @@ import ChooseProfilePage from "./ChooseProfilePage/ChooseProfilePage";
 import MatchListPage from "./MatchListPage/MatchListPage";
 import styled from "styled-components";
 
+const test = ''
 
 const ConatinerMain = styled.div`
     display: flex;
