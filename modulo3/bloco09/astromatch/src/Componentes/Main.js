@@ -5,7 +5,7 @@ import MatchListPage from "./MatchListPage/MatchListPage";
 import styled from "styled-components";
 
 
-
+ 
 const ConatinerMain = styled.div`
     display: flex;
     flex-direction: column;
