@@ -1,6 +1,3 @@
-import React from "react";
-import styled from "styled-components";
-
 const LoginContainer = styled.div`
 display: flex;
 flex-direction: column;
@@ -30,19 +27,3 @@ const Tittle = styled.h1`
 margin: auto;
 
 `
-function LoginPage() {
-  return (
-    <LoginContainer>  
-        <Tittle>Login</Tittle>
-        <Inputs type="email" placeholder="E-mail" />
-        <Inputs type="password" placeholder="Senha" />
-      
-      <ButtonsContainer>
-        <Buttons>Voltar</Buttons>
-        <Buttons>Entrar</Buttons>
-      </ButtonsContainer>
-    </LoginContainer>
-  );
-}
-
-export default LoginPage;
