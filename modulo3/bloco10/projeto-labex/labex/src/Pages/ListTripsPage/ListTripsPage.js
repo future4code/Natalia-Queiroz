@@ -1,8 +1,8 @@
 import React from "react";
-import ApplicationFormPage from "./ApplicationFormPage";
+import ApplicationFormPage from "../ApplicationFormPage/ApplicationFormPage";
+
 
 function ListTripsPage() {
-  const destiny = ""
 
   return (
     <div>
@@ -14,8 +14,9 @@ function ListTripsPage() {
           duração: 50,
           data: "2021-12-24"
         </p>
+        <ApplicationFormPage />
       </div>
-      <ApplicationFormPage />
+      
     </div>
   );
 }
