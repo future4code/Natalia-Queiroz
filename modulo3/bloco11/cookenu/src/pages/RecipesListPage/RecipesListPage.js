@@ -1,9 +1,10 @@
 import React from "react";
 
-const RecipeListPage = () =>{
+const RecipeListPage = () => {
     return (
         <div>
             <h1>RecipeListPage</h1>
+            
         </div>
     )
 };
