@@ -21,3 +21,7 @@ const pokemon3: pokemon = {
   types: "Water",
   healthPoints: 35
 }
+
+// b) No terminal eu escreveria o seguinte codigo: tsc exercicio-.ts
+// c) Não.
+// d) Sim. Colocar os nomes dos aquivos que deseja transpilar apos o comando tsc separados por espaço
