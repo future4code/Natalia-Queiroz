@@ -3,8 +3,6 @@ import { useState } from 'react';
 import {TelaInicial} from './componentes/TelaInicial';
 import {TelaMatch} from './componentes/TelaMatch';
 
-import styled from 'styled-components';
-import axios from 'axios';
 
 
 function App() {
