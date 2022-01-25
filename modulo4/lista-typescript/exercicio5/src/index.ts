@@ -2,6 +2,7 @@
 array como parâmetro e retorne uma lista com apenas os emails dos usuários
  “admin”. */
 
+
 const usuarios = [
 	{name: "Rogério", email: "roger@email.com", role: "user"},
 	{name: "Ademir", email: "ademir@email.com", role: "admin"},
