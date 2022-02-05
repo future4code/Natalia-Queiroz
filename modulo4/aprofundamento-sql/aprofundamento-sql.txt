@@ -1,0 +1,35 @@
+Exercício 1 -
+    a) Vai apagar a coluna "salary" da tabela "Actor";
+    b) Vai trocar o nome da coluna "gender" para "sex" e adicionando o tipo "VARCHAR(6)";
+    c) Vai adicionar o tipo na coluna gender para um que aceite string de até 255 caracteres.
+    d) ALTER TABLE Actor CHANGE gender gender VARCHAR(100);
+
+Exercício 2 -
+
+    a) UPDATE Actor
+        SET name = "Bruna Marquezine", date = "1995-08-20"
+        WHERE id = "003";
+
+    b) UPDATE Actor
+        SET name = "JULIANA PAES"
+        WHERE id = "004";
+
+        UPDATE Actor
+        SET name = "Juliana Paes"
+        WHERE id = "004";
+
+    c) UPDATE Actor
+        SET name = "Caio Castro", salary = 100000, birthdate = "1988-08-17", gender = "male"
+        WHERE id = "005";
+
+    d) O workbench vai retornar um erro dizendo que não encontrou aquele valor na linha 1.
+
+Exercício 3 -
+    a) DELETE FROM Actor WHERE name = "Fernanda Montenegro"
+    b) DELETE FROM Actor WHERE gender = "male" AND salary > 1000000 
+
+Exercício 4 - 
+    a) SELECT MAX(salary) FROM Actor
+    b) SELECT MIN(salary) FROM Actor WHERE gender = "female"
+    c) SELECT COUNT(*) FROM Actor WHERE gender = "female"
+    d) SELECT SUN(salary) FROM Actor 
