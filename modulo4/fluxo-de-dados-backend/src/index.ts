@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 app.listen(3003, () => {
-    console.log("Tá tudo na porta 3003")
+    console.log("O servidor está rodando na porta 3003")
 })
 
 // 1- Crie uma nova API do zero (ou utilizando um template) e desenvolva um endpoint de teste com método GET
@@ -13,7 +13,7 @@ app.listen(3003, () => {
 
 app.get("/test", (req, res) => {
     console.log("ok")
-    res.send("Tá funcionando")
+    res.send("Funcionou!")
 })
 
 
@@ -28,21 +28,25 @@ app.get("/test", (req, res) => {
 
 // 3- Desenvolva um endpoint que **cria um novo produto** e retorna a lista de produtos atualizada.
 // A id do produto deve ser gerada automaticamente pela API.
-app.post("/funkos-naruto", (req: Request, res: Response) => {
-    const name = req.body.name
-    const price = req.body.price
+app.post("/add-new-funko", (req: Request, res: Response) => {
+    const {name, price} = req.body
 
     const newCharacter: Character = {
         id: Date.now().toString(), 
         name,
         price
     }
-
-    array.push(newCharacter)
-    res.send(array)
+    
+    const newArray =  array.push(newCharacter)
+    res.send(newArray)
 })
 
 // 4- Crie um endpoint que retorna todos os produtos.
+
+    app.get('/products', (req: Request, res: Response) => {
+        res.send(array)
+    })
+
 // 5- Crie um endpoint que edita o preço de um determinado produto e retorna a lista de produtos atualizada.
 // 6- Construa um endpoint que deleta um determinado produto e retorna a lista de produtos atualizada.
 // 7- Refatore o endpoint do exercício 3 (criar produto) para que sejam implementados fluxos de validação

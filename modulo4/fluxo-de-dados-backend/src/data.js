@@ -1,16 +1,16 @@
 export const array = [
     {
-        id: 1,
+        id: "Funko Naruto",
         name: "Naruto Uzumaki",
         price: 100
     },
     {
-        id: 2,
+        id: "Funko Sasuke",
         name: "Sasuke Uchiha",
         price: 85
     },
     {
-        id: 3,
+        id: "Funko Sakura",
         name: "Sakura Haruno",
         price: 90
     }
