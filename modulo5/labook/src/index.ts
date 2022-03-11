@@ -1,131 +1,121 @@
 /**************************** IMPORTS ******************************/
-import { authenticationData } from "./types/Authentication"
-import { generateId } from "./services/IdGenerator"
+import UserBusiness from "./business/UserBusiness"
+import { app } from "./controller/app"
+import UserController from "./controller/UserController"
+import { migration } from "./migrations"
+
+const userController = new UserController(new UserBusiness())
+
+migration()
+
+app.post('/users/signup',  userController.singup)
+
+app.post('/users/login', userController.login) 
+
+    
 
 
-/**************************** ENDPOINTS ******************************/
 
-// app.post('/users/signup', 
+//       if (!queryResult[0]) {
+//          res.statusCode = 401
+//          message = "Invalid credentials"
+//          throw new Error(message)
+//       }
 
-app.post('/users/login', async (req: Request, res: Response) => {
-   try {
-      let message = "Success!"
+//       const user: user = {
+//          id: queryResult[0].id,
+//          name: queryResult[0].name,
+//          email: queryResult[0].email,
+//          password: queryResult[0].password
+//       }
 
-      const { email, password } = req.body
+//       const passwordIsCorrect: boolean = await compare(password, user.password)
 
-      if (!email || !password) {
-         res.statusCode = 406
-         message = '"email" and "password" must be provided'
-         throw new Error(message)
-      }
+//       if (!passwordIsCorrect) {
+//          res.statusCode = 401
+//          message = "Invalid credentials"
+//          throw new Error(message)
+//       }
 
-      const queryResult: any = await connection("labook_users")
-         .select("*")
-         .where({ email })
+//       const token: string = generateToken({
+//          id: user.id
+//       })
 
-      if (!queryResult[0]) {
-         res.statusCode = 401
-         message = "Invalid credentials"
-         throw new Error(message)
-      }
+//       res.status(200).send({ message, token })
 
-      const user: user = {
-         id: queryResult[0].id,
-         name: queryResult[0].name,
-         email: queryResult[0].email,
-         password: queryResult[0].password
-      }
+//    } catch (error: any) {
+//       let message = error.sqlMessage || error.message
+//       res.statusCode = 400
 
-      const passwordIsCorrect: boolean = await compare(password, user.password)
+//       res.send({ message })
+//    }
+// })
 
-      if (!passwordIsCorrect) {
-         res.statusCode = 401
-         message = "Invalid credentials"
-         throw new Error(message)
-      }
+// app.post('/posts/create', async (req: Request, res: Response) => {
+//    try {
+//       let message = "Success!"
 
-      const token: string = generateToken({
-         id: user.id
-      })
+//       const { photo, description, type } = req.body
 
-      res.status(200).send({ message, token })
+//       const token: string = req.headers.authorization as string
 
-   } catch (error: any) {
-      let message = error.sqlMessage || error.message
-      res.statusCode = 400
+//       const tokenData: authenticationData = getTokenData(token)
 
-      res.send({ message })
-   }
-})
+//       const id: string = generateId()
 
-app.post('/posts/create', async (req: Request, res: Response) => {
-   try {
-      let message = "Success!"
+//       await connection("labook_posts")
+//          .insert({
+//             id,
+//             photo,
+//             description,
+//             type,
+//             author_id: tokenData.id
+//          })
 
-      const { photo, description, type } = req.body
+//       res.status(201).send({ message })
 
-      const token: string = req.headers.authorization as string
+//    } catch (error: any) {
+//       let message = error.sqlMessage || error.message
+//       res.statusCode = 400
 
-      const tokenData: authenticationData = getTokenData(token)
+//       res.send({ message })
+//    }
+// })
 
-      const id: string = generateId()
+// app.get('/posts/:id', async (req: Request, res: Response) => {
+//    try {
+//       let message = "Success!"
 
-      await connection("labook_posts")
-         .insert({
-            id,
-            photo,
-            description,
-            type,
-            author_id: tokenData.id
-         })
+//       const { id } = req.params
 
-      res.status(201).send({ message })
+//       const queryResult: any = await connection("labook_posts")
+//          .select("*")
+//          .where({ id })
 
-   } catch (error: any) {
-      let message = error.sqlMessage || error.message
-      res.statusCode = 400
+//       if (!queryResult[0]) {
+//          res.statusCode = 404
+//          message = "Post not found"
+//          throw new Error(message)
+//       }
 
-      res.send({ message })
-   }
-})
+//       const post: post = {
+//          id: queryResult[0].id,
+//          photo: queryResult[0].photo,
+//          description: queryResult[0].description,
+//          type: queryResult[0].type,
+//          createdAt: queryResult[0].created_at,
+//          authorId: queryResult[0].author_id,
+//       }
 
-app.get('/posts/:id', async (req: Request, res: Response) => {
-   try {
-      let message = "Success!"
+//       res.status(200).send({ message, post })
 
-      const { id } = req.params
+//    } catch (error: any) {
+//       let message = error.sqlMessage || error.message
+//       res.statusCode = 400
 
-      const queryResult: any = await connection("labook_posts")
-         .select("*")
-         .where({ id })
+//       res.send({ message })
+//    }
+// })
 
-      if (!queryResult[0]) {
-         res.statusCode = 404
-         message = "Post not found"
-         throw new Error(message)
-      }
+// /**************************** SERVER INIT ******************************/
 
-      const post: post = {
-         id: queryResult[0].id,
-         photo: queryResult[0].photo,
-         description: queryResult[0].description,
-         type: queryResult[0].type,
-         createdAt: queryResult[0].created_at,
-         authorId: queryResult[0].author_id,
-      }
-
-      res.status(200).send({ message, post })
-
-   } catch (error: any) {
-      let message = error.sqlMessage || error.message
-      res.statusCode = 400
-
-      res.send({ message })
-   }
-})
-
-/**************************** SERVER INIT ******************************/
-
-app.listen(3003, () => {
-   console.log("Server running on port 3003")
-})

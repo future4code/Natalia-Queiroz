@@ -1,7 +1,9 @@
-import { connection } from "./index"
 
-connection
-   .raw(`
+import { connection } from "./data/connection"
+
+export const migration = () => {
+   connection
+      .raw(`
       CREATE TABLE IF NOT EXISTS labook_users(
          id VARCHAR(255) PRIMARY KEY,
          name VARCHAR(255) NOT NULL,
@@ -19,5 +21,6 @@ connection
          FOREIGN KEY (author_id) REFERENCES labook_users (id)
       )
    `)
-   .then(console.log)
-   .catch(console.log)
+      .then(console.log)
+      .catch(console.log)
+}
