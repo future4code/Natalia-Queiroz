@@ -1,133 +1,33 @@
-## CADASTRO USUARIOS
- deve ser simples, pedindo: {
-    * nome
-    * apelido (nickname) 
-    * email
- }
+# To Do List
+A proposta do projeto é fazer o backend de uma To Do List simples. 
+Esse é um projeto desenvolvido a partir dos conhecimentos adquiridos no bootcamp da Labenu e realizado como uma atividade do curso para por em prática os assuntos estudados com uso de ferramentas como MySQL WORKBENCH, POSTMAN e bibliotecas como EXPRESS, DOTENV, KNEX e MOMENT. Todo o código foi desenvolvido em TypeScript.
 
-## TAREFAS
-{
-    * id
-    * title
-    * description
-    * deadline
-    * status: "to_do" || "doing" || "done"
-    * author
-    * assignees
-}
+## Usuários
+- O cadastro de usuários é simples, pedindo apenas um nome, um apelido (nickname) e um email
 
-As tarefas são definidas por: título, descrição, data limite até a qual precisa ser feita, status e usuário pedinte (o que criou a tarefa). Existem os usuários responsáveis por uma tarefa, ou seja, aqueles que terão que executa-las. Mais de um usuário pode ser diretamente responsável de mesma tarefa. Os status das tarefas são 3: *to do* ("a fazer"), *doing* ("fazendo") e *done* ("feita").
+## Tarefas
+- As tarefas são definidas por título, descrição, data limite até a qual precisa ser feita, status e usuário pedinte (o que criou a tarefa). 
 
-Dados esses requisitos do sistema, você deve modelar todo o banco de dados (usando MySQL) e implementar o backend. Leia atentamente a lista de endpoints mostrada abaixo antes de começar a modelagem do banco, aí estão descritas todas as informações necessárias para criá-los.
+- Os status das tarefas são 3: *to do* ("a fazer"), *doing* ("fazendo") e *done* ("feita").
 
-### Endpoints Mínimos
-
-- **1. Criar usuário**
+### Criação de endpoints
+- **1. Criar usuário**     
+    - O  código valida se os três campos estão completos (ou seja se não foram enviados ou se não estão vazios) e retorna um erro caso não estejam válidos
+    - O código gera o id do usuário
     
-    **Método:** POST
-    **Path:** `/user`
+- **2. Pegar usuário pelo id**    
+    - O endpoint retorna um erro se não encontrar o usuário
     
-    **Body:**
+- **3. Editar usuário**    
+    - O código só altera o que foi enviado
+    - Se algum valor enviado for vazio, retorna um erro
     
-    ```json
-    {
-    	"name": "Astro Dev",
-    	"nickname": "astrodev",
-    	"email": "astro@dev.com"
-    }
-    ```
-    
-    **Observações**:
-    
-    - O seu código deve validar se os três campos estão completos (ou seja se não foram enviados ou se não estão vazios) e retornar um erro caso não estejam válidos
-    - O seu código deve gerar o id do usuário
-    
-- **2. Pegar usuário pelo id**
-    
-    **Método:** GET
-    **Path:** `/user/:id`
-    
-    **Path Param**: é o id do usuário
-    
-    **Body de Resposta:**
-    
-    ```json
-    {
-    	"id": "001",
-    	"nickname": "astrodev"
-    }
-    ```
-    
-    **Observações**:
-    
-    - O endpoint deve retornar um erro se não encontrar o usuário
-    
-- **3. Editar usuário**
-    
-    **Método:** PUT
-    **Path:** `/user/edit/:id`
-    
-    **Path Param**: é o id do usuário
-    
-    **Body:**
-    
-    ```json
-    {
-    	"name": "Astro Dev",
-    	"nickname": "astrodev"
-    }
-    ```
-    
-    **Observações**:
-    
-    - O seu código só deve alterar o que for enviado
-    - Se algum valor enviado for vazio, deve retornar um erro
-    
-- **4. Criar tarefa**
-    
-    **Método:** POST
-    **Path:** `/task`
-    
-    **Body:**
-    
-    ```json
-    {
-    	"title": "Criar banco dos alunos",
-    	"description": "Devemos criar o banco dos alunos para o módulo do backend",
-    	"limitDate": "04/05/2020",
-    	"creatorUserId": "001"
-    }
-    ```
-    
-    **Observações**:
-    
-    - O seu código deve validar se todos os campos não estão vazios,
-    - O seu código deve gerar o id da tarefa,
-    - A data deve se recebida no formato mostrado acima: `DD/MM/YYYY` e o seu código deve fazer a conversão necessária para salvar no banco
+- **4. Criar tarefa**    
+    - O código valida se todos os campos não estão vazios
+    - O código gera o id da tarefa
+    - A data é recebida no formato `DD/MM/YYYY` e o código faz a conversão necessária para salvar no banco
     
 - **5. Pegar tarefa pelo id**
-    
-    **Método:** GET
-    **Path:** `/task/:id`
-    
-    **Path Param**: é o id da tarefa
-    
-    **Body de Resposta:**
-    
-    ```json
-    {
-    	"taskId": "001",
-    	"title": "Criar banco dos alunos",
-    	"description": "Devemos criar o banco dos alunos para o módulo do backend",
-    	"limitDate": "04/05/2020",
-    	"status": "to_do",
-    	"creatorUserId": "001",
-    	"creatorUserNickname": "astrodev"
-    }
-    ```
-    
-    **Observações**:
-    
-    - O endpoint deve retornar um erro se não encontrar a task
-    - Perceba que o endpoint retorna informações tanto da tarefa como do usuário criador
-    - O seu código deve converter a data recebida do banco para o formato mostrado acima (`DD/MM/YYYY`)
+    - O endpoint retorna um erro se não encontrar a tarefa
+    - O endpoint retorna informações tanto da tarefa como do usuário criador
+    - O código converte a data recebida do banco para o formato `DD/MM/YYYY`

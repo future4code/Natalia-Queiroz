@@ -1,4 +1,3 @@
-import { stringify } from "querystring";
 import connection from "..";
 
 export default async function updateUser(
