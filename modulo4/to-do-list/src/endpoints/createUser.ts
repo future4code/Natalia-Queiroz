@@ -11,6 +11,7 @@ export default async function createUser(req: Request, res: Response) {
             res
                 .status(400)
                 .send('Preencha os campos "name", "nickname" e "email"')
+
         }
 
         const id: string = Date.now() + Math.random().toString()
