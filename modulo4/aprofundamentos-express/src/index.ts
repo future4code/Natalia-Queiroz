@@ -1,4 +1,5 @@
-import express from "express";
+import { info } from "console";
+import express, { Request, Response } from "express";
 
 const app = express();
 
@@ -108,7 +109,7 @@ app.get("/to-do-list", (req, res) => {
 
 //Construa um endpoint de criação de afazer. A resposta deve retornar o array de afazeres atualizado.
 
-app.post("/to-do-list", (req, res) => {
+app.post("/to-do-list/create", (req: Request, res: Response) => {
     const newTask = req.query.newTask
     const newToDoList = toDoList.push(newTask)
     res.send(newToDoList)
