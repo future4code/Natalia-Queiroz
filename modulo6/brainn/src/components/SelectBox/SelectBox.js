@@ -1,26 +1,23 @@
 import React from "react"
 import { SelectContainer } from "./styled"
-// import {goToMegaSena, goToQuina} from '../../router/coordinator'
-import { useHistory } from "react-router-dom"
+import megaSenaSidebar from '../../assets/desktop/megaSenaSidebar.svg'
+import quinaSidebar from '../../assets/desktop/quinaSidebar.svg'
+import lotofacilSidebar from '../../assets/desktop/lotofacilSidebar.svg'
+import lotomaniaSidebar from '../../assets/desktop/lotomaniaSidebar.svg'
+import timemaniaSidebar from '../../assets/desktop/timemaniaSidebar.svg'
+import diaDeSorteSidebar from '../../assets/desktop/diaDeSorteSidebar.svg'
+
 
 const SelectBox = () => {
-  const history = useHistory
-  const goToPage = (history) => {
-    history.push(`${screen}`)
-  }
-  const inputController = (event) => {
-    setScreen(event.target.value)
-  }
-  goToPage(history)
-  
+
   return (
-    <SelectContainer onChange={inputController} value={screen}>
-      <option value={'MegaSena'}>MEGA-SENA</option>
-      <option value={'Quina'}>QUINA</option>
-      <option value={'Lotofacil'}>LOTOFACIL</option>
-      <option value={'Lotomania'}>LOTOMANIA</option>
-      <option value={'Timemania'}>TIMEMANIA</option>
-      <option value={'DiaDeSorte'}>DIA DE SORTE</option>
+    <SelectContainer>
+      <option value={megaSenaSidebar}>MEGA-SENA</option>
+      <option value={quinaSidebar}>QUINA</option>
+      <option value={lotofacilSidebar}>LOTOFACIL</option>
+      <option value={lotomaniaSidebar}>LOTOMANIA</option>
+      <option value={timemaniaSidebar}>TIMEMANIA</option>
+      <option value={diaDeSorteSidebar}>DIA DE SORTE</option>
     </SelectContainer>
   )
 }
