@@ -29,13 +29,14 @@ export const Home = () => {
     console.log(lotteryContest)
     const [chooseLotteryContest, setChooseLotteryContest] = useState()
 
-    const contest = useContests([], `${BASE_URL}/concursos/2200`)
+    const contest = useContests([], `${BASE_URL}/concursos/:id`)
     console.log(contest)
     const [chooseContest, setChooseContest] = useState()
 
     const onChangeSelect = (event) => {
         setSidebar(event.target.value)
     }
+
 
     return (
         <ScreenContainer>
