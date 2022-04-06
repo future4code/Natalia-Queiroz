@@ -1,11 +1,14 @@
-import React from "react";
-
+import React from "react"
+import { BrowserRouter } from "react-router-dom";
+import Header from "./components/Header/Header";
+import Router from './router/Router'
 const App = () => {
   return (
-    <div>
-      APP
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Router />
+    </BrowserRouter>
   );
 }
 
-export default App;
+export default App
