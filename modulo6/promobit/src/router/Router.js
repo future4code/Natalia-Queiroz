@@ -10,9 +10,11 @@ const Router = () => {
             <Route exact path={'/'}>
                 <HomePage />
             </Route>
+
             <Route exact path={'/details/:id'}>
                 <DetailsPage />
             </Route>
+            
             <Route>
                 <ErrorPage />
             </Route>
