@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { goToDetailsPage } from '../../router/coordinator'
 import Menu from '../../components/Menu/Menu'
 import MovieCard from "../../components/MovieCard/MovieCard"
-import { HomePageContainer } from "./styled"
+import { HomePageContainer, MovieListContainer } from "./styled"
 import { API_KEY } from "../../constants/API_KEY"
 import { BASE_URL } from "../../constants/BASE_URL"
 import useRequestData from "../../hooks/useRequestData"
@@ -14,25 +14,28 @@ const HomePage = () => {
 
   const movies = [useRequestData([], `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=pt-BR&page=1`)]
   
-  console.log(movies[0].results) 
+  console.log(movies[0]) 
+  let list = movies[0].results
+
   
-  const movieList = movies.map((movie) => {
+  const movieList = !!list ? list.map((movie) => {
     return (
       <MovieCard
         key={movie.id}
-        title={movie.original_title}
+        title={movie.title}
         image={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
         release_date={movie.release_date}
-        onclick={() => goToDetailsPage(history, movie.id)}
+        onClick={() => goToDetailsPage(history, movie.id)}
       />
     ) 
-  })
+  }) : <Loading />
   console.log(movieList)
 
   return (
     <HomePageContainer>
       <Menu />
-      {movieList.length > 0 ? movieList : <Loading/>}
+      <MovieListContainer>{movieList}</MovieListContainer>
+      
     </HomePageContainer>
   )
 }

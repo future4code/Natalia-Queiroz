@@ -1,14 +1,12 @@
 import React from "react"
-import { MovieCardContainer } from "./styled"
+import { MovieCardContainer, MovieImage, Title, ReleaseDate } from "./styled"
 
 const MovieCard = (props) => {
   return (
-    <MovieCardContainer onClick={props.onClick}>
-      <img src={props.image}/>
-      <div>
-        <h3>{props.title}</h3>
-        <p>{props.release_date}</p>
-      </div>
+    <MovieCardContainer onClick={props.onClick} >
+      <MovieImage src={props.image} alt='poster' className="scale"/>   
+        <Title >{props.title}</Title>   
+        <ReleaseDate>{props.release_date}</ReleaseDate>        
     </MovieCardContainer>
   )
 }
@@ -30,17 +28,18 @@ export default MovieCard
 //         <CardMedia
 //           key={props.id}
 //           title={props.title}
-//           // component={'img'}
+//           component={'img'}
 //           image={props.image}
 //           alt={props.title}
-//           height={'150px'}
+//           // height={'150px'}
 //         />
-//         <MovieCardContent>
+        
+//       </CardActionArea>
+//       <MovieCardContent>
 //           <Typography align={'center'}>
 //             {props.title}
 //           </Typography>
 //         </MovieCardContent>
-//       </CardActionArea>
 //     </MovieCardContainer>
 //   )
 // }
