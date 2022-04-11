@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const MovieCardContainer = styled.button`
     border: none;
+    background: none;
     max-width: 200px;
     margin-left: 10%;
     margin-bottom: 15%;
