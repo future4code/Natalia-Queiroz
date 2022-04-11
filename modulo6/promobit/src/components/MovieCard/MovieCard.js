@@ -1,12 +1,14 @@
 import React from "react"
-import { MovieCardContainer, MovieImage, Title, ReleaseDate } from "./styled"
+import { MovieCardContainer, MovieImage, Title, ReleaseDate, Infos } from "./styled"
 
 const MovieCard = (props) => {
   return (
     <MovieCardContainer onClick={props.onClick} >
       <MovieImage src={props.image} alt='poster' className="scale"/>   
+      <Infos>
         <Title >{props.title}</Title>   
-        <ReleaseDate>{props.release_date}</ReleaseDate>        
+        <ReleaseDate>{props.release_date}</ReleaseDate>   
+      </Infos>     
     </MovieCardContainer>
   )
 }

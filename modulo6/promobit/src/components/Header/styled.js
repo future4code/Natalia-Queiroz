@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const  HeaderContainer = styled.div`
 position: absolute;
-width: 100vw;
+width: 100%;
 height: 56px;
 left: 0px;
 top: 0px;

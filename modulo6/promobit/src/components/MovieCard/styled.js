@@ -3,9 +3,8 @@ import styled from 'styled-components'
 export const MovieCardContainer = styled.button`
     border: none;
     max-width: 200px;
-    min-height: 390px;
     margin-left: 10%;
-    margin-bottom: 5px;
+    margin-bottom: 15%;
     transition: all 0.5s;
     cursor: pointer;
     .scale:hover {
@@ -46,6 +45,11 @@ export const MovieImage = styled.img`
     box-sizing: border-box;
     border-radius: 6px;
     `
+
+export const Infos = styled.div`
+height: 65px;
+`
+
 // import styled from 'styled-components'
 // import Card from '@material-ui/core/Card'
 // import CardContent from '@material-ui/core/CardContent'
