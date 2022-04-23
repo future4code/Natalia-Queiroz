@@ -15,5 +15,3 @@ export const compareHash = (
     plainText: string,
     cypherText: string
 ): boolean => compareSync(plainText, cypherText)
-
-

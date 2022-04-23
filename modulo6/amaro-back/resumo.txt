@@ -24,3 +24,18 @@ Orientações
 -Colocar as orientações de setup no README do seu repositório.
 
 
+ESTRUTURA DE DADOS  
+user {
+    id
+    name
+    email
+    password //min 6 caracteres
+}
+
+
+products {
+    id
+    name
+    tags  
+    userId  
+}

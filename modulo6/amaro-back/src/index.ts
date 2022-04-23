@@ -1,12 +1,3 @@
-import app from './app'
-import { compareHash, generateHash } from './services/hashManager'
-import generateId from './services/idGenerator'
+import app from "./app";
 
-
-app.get("/")
-
-const cypherText = generateHash("Hello, world")
-
-console.log(
-    compareHash("Hello, world", cypherText)
-)
+app.get('/')
